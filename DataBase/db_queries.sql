@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS dl_java;
+
+CREATE DATABASE dl_java;
+USE dl_java;
