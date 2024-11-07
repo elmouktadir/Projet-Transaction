@@ -37,7 +37,7 @@ public class Transaction {
         this.reference = genererReference();
         this.comptes = new ArrayList<>();
         addcomptes(comptes);
-        typetransaction();
+        this.type = typetransaction();
     }
 
     private String genererReference(){
@@ -115,7 +115,7 @@ public class Transaction {
         }
     }
 
-    public void typetransaction(){
+    public Type typetransaction(){
         final int COMPTE_NBR = this.comptes.size();
         if (COMPTE_NBR == 2) {
 
@@ -123,30 +123,30 @@ public class Transaction {
                 //if (this.comptes.get(i).getBanque().getId().equals(this.comptes.get(i+1).getBanque().getId()))
                 if (MemeBanque(this.comptes.get(i).getBanque(),this.comptes.get(i+1).getBanque())){
 
-                    this.type =  Type.VIRINI;
+                    return  Type.VIRINI;
                 }else if (MemePaysBanque(this.comptes.get(i).getBanque(),this.comptes.get(i+1).getBanque()))
                 {
 
-                    this.type =  Type.VIREST;
+                    return  Type.VIREST;
 
                 } else if (!MemeBanque(this.comptes.get(i).getBanque(),this.comptes.get(i+1).getBanque())
                         && !MemePaysBanque(this.comptes.get(i).getBanque(),this.comptes.get(i+1).getBanque())
                 ) {
 
-                    this.type =  Type.VIRCHAC;
+                    return  Type.VIRCHAC;
 
                 }else{
-                    this.type = null;
+                    return null;
                 }
             }
         }else if (COMPTE_NBR > 2 ){
 
-            this.type =  Type.VIRMULTA;
+            return  Type.VIRMULTA;
 
         }else{
-            this.type = null;
+            return null;
         }
-
+            return null;
     }
 
     public TransactionBuilder build(){

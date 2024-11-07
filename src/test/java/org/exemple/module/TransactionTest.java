@@ -33,47 +33,51 @@ public class TransactionTest {
 
     @Test
     public void testTransactionVIRINI(){
+        List<Compte> comptes = new ArrayList<>();
         Banque banque1 = new Banque("1","UK");
         Banque banque2 = new Banque("1","USA");
         Client client1 = new Client(1,"nom1","prenom1","addresse1","phone1","email1");
         Client client2 = new Client(2,"nom2","prenom2","addresse2","phone2","email2");
         Compte compte1 = new Compte(1,1200,client1,banque1);
         Compte compte2 = new Compte(2,1500,client2,banque2);
-        transaction.addCompte(compte1);
-        transaction.addCompte(compte2);
-        transaction.typetransaction();
-        assertEquals(Transaction.Type.VIRINI,transaction.getType());
+        comptes.add(compte1);
+        comptes.add(compte2);
+        Transaction transaction = new Transaction(comptes);
+        assertEquals(Type.VIRINI,transaction.getType());
     }
 
     @Test
     public void testTransactionVIREST(){
+        List<Compte> comptes = new ArrayList<>();
         Banque banque1 = new Banque("1","UK");
         Banque banque2 = new Banque("2","UK");
         Client client1 = new Client(1,"nom1","prenom1","addresse1","phone1","email1");
         Client client2 = new Client(2,"nom2","prenom2","addresse2","phone2","email2");
         Compte compte1 = new Compte(1,1200,client1,banque1);
         Compte compte2 = new Compte(2,1500,client2,banque2);
-        transaction.addCompte(compte1);
-        transaction.addCompte(compte2);
-        transaction.typetransaction();
-        assertEquals(Transaction.Type.VIREST,transaction.getType());
+        comptes.add(compte1);
+        comptes.add(compte2);
+        Transaction transaction = new Transaction(comptes);
+        assertEquals(Type.VIREST,transaction.getType());
     }
 
     @Test
     public void testTransactionVICHAC(){
+        List<Compte> comptes = new ArrayList<>();
         Banque banque1 = new Banque("1","UK");
         Banque banque2 = new Banque("2","USA");
         Client client1 = new Client(1,"nom1","prenom1","addresse1","phone1","email1");
         Client client2 = new Client(2,"nom2","prenom2","addresse2","phone2","email2");
         Compte compte1 = new Compte(1,1200,client1,banque1);
         Compte compte2 = new Compte(2,1500,client2,banque2);
-        transaction.addCompte(compte1);
-        transaction.addCompte(compte2);
-        transaction.typetransaction();
-        assertEquals(Transaction.Type.VIRCHAC,transaction.getType());
+        comptes.add(compte1);
+        comptes.add(compte2);
+        Transaction transaction = new Transaction(comptes);
+        assertEquals(Type.VIRCHAC,transaction.getType());
     }
     @Test
     public void testTransactionVIMULTA(){
+        List<Compte> comptes = new ArrayList<>();
         Banque banque1 = new Banque("1","UK");
         Banque banque2 = new Banque("2","USA");
         Client client1 = new Client(1,"nom1","prenom1","addresse1","phone1","email1");
@@ -82,11 +86,11 @@ public class TransactionTest {
         Compte compte1 = new Compte(1,1200,client1,banque1);
         Compte compte2 = new Compte(2,1500,client2,banque1);
         Compte compte3 = new Compte(2,1500,client3,banque2);
-        transaction.addCompte(compte1);
-        transaction.addCompte(compte2);
-        transaction.addCompte(compte3);
-        transaction.typetransaction();
-        assertEquals(VIRMULTA,transaction.getType());
+        comptes.add(compte1);
+        comptes.add(compte2);
+        comptes.add(compte3);
+        Transaction transaction = new Transaction(comptes);
+        assertEquals(Type.VIRMULTA,transaction.getType());
     }
 
     @Test
