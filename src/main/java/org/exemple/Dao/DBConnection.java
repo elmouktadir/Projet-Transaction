@@ -16,8 +16,8 @@ public class DBConnection {
 
         try{
             connection = DriverManager.getConnection(String.format("jdbc:mysql://%s:%d/%s",HOST,PORT,DB_NAME),USERNAME,PASSWORD);
-        }catch(SQLException se){
-            se.printStackTrace();
+        }catch(SQLException e){
+            e.printStackTrace();
         }
 
         return connection;
